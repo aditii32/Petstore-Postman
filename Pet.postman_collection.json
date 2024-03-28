@@ -1,0 +1,190 @@
+{
+	"info": {
+		"_postman_id": "09eec6dc-d3a0-42a1-9f86-1f5445b7ff7f",
+		"name": "Pet",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "33643733",
+		"_collection_link": "https://www.postman.com/spacecraft-specialist-7984735/workspace/petstore/collection/33643733-09eec6dc-d3a0-42a1-9f86-1f5445b7ff7f?action=share&source=collection_link&creator=33643733"
+	},
+	"item": [
+		{
+			"name": "Add a new pet to the store",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"id\": 1,\r\n  \"category\": {\r\n    \"id\": 101,\r\n    \"name\": \"German Shephered\"\r\n  },\r\n  \"name\": \"Goldiee\",\r\n  \"photoUrls\": [\r\n    \"string\"\r\n  ],\r\n  \"tags\": [\r\n    {\r\n      \"id\": 0,\r\n      \"name\": \"string\"\r\n    }\r\n  ],\r\n  \"status\": \"available\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://petstore.swagger.io/v2/pet",
+					"protocol": "https",
+					"host": [
+						"petstore",
+						"swagger",
+						"io"
+					],
+					"path": [
+						"v2",
+						"pet"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update and Exisiting pet",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"id\": 1,\r\n  \"category\": {\r\n    \"id\": 101,\r\n    \"name\": \"Husky\"\r\n  },\r\n  \"name\": \"doggie\",\r\n  \"photoUrls\": [\r\n    \"string\"\r\n  ],\r\n  \"tags\": [\r\n    {\r\n      \"id\": 0,\r\n      \"name\": \"string\"\r\n    }\r\n  ],\r\n  \"status\": \"available\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BaseUrl}}/pet",
+					"host": [
+						"{{BaseUrl}}"
+					],
+					"path": [
+						"pet"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Find pets by status",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BaseUrl}}/pet/findByStatus?status=avaliable",
+					"host": [
+						"{{BaseUrl}}"
+					],
+					"path": [
+						"pet",
+						"findByStatus"
+					],
+					"query": [
+						{
+							"key": "status",
+							"value": "avaliable"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Find pet by Id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BaseUrl}}/pet/{{petId}}",
+					"host": [
+						"{{BaseUrl}}"
+					],
+					"path": [
+						"pet",
+						"{{petId}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Updates a pet in the store with form data",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{BaseUrl}}/pet/{{petId}}?name=Husky&status=available",
+					"host": [
+						"{{BaseUrl}}"
+					],
+					"path": [
+						"pet",
+						"{{petId}}"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "Husky"
+						},
+						{
+							"key": "status",
+							"value": "available"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "uploads an image",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{BaseUrl}}/pet/{{petId}}/uploadImage?additionalMetadata=additionalMetdata&file=file",
+					"host": [
+						"{{BaseUrl}}"
+					],
+					"path": [
+						"pet",
+						"{{petId}}",
+						"uploadImage"
+					],
+					"query": [
+						{
+							"key": "additionalMetadata",
+							"value": "additionalMetdata"
+						},
+						{
+							"key": "file",
+							"value": "file"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete pet by Id",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "api_key",
+						"value": "api_key",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{BaseUrl}}/pet/{{petId}}",
+					"host": [
+						"{{BaseUrl}}"
+					],
+					"path": [
+						"pet",
+						"{{petId}}"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
